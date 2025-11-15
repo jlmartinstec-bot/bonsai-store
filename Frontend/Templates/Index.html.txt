@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Bonsai Store</title>
+</head>
+<body>
+    <h1>Loja Bonsai Store</h1>
+    <p>Protótipo inicial da aplicação.</p>
+</body>
+</html>
