@@ -24,3 +24,6 @@ Este documento revisa e define um escopo mínimo, funcional e realista.
 - Escopo simplificado
 - Organização das pastas
 - Definição clara das entregas técnicas
+
+Documento finalizado. Todas as revisões foram aplicadas.
+

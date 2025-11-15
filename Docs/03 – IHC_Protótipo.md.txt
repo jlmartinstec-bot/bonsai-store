@@ -16,3 +16,124 @@ Tela inicial contém:
 - Botões mais visíveis
 - Ajustes de cores
 - Adicionar seção de produtos
+
+03 – IHC / Protótipo – Bonsai Store
+
+Este documento apresenta uma visão simples da interface do usuário (IHC) da aplicação Bonsai Store. O objetivo é mostrar como as telas devem funcionar de forma inicial, antes da programação final. O protótipo serve mais como guia visual do que algo definitivo.
+
+1. Objetivo da IHC
+
+Criar uma interface fácil de entender, simples e sem muitos elementos, pois o sistema ainda é um MVP. A ideia é que o usuário consiga:
+
+Ver a página inicial
+
+Visualizar os bonsais disponíveis
+
+Acessar os detalhes de um produto
+
+Ter uma navegação básica entre telas
+
+Não foi possível fazer algo muito elaborado por conta do tempo e também pela limitação de conhecimento no momento, mas o essencial está planejado.
+
+2. Padrões adotados
+
+Usei alguns princípios básicos de UX que foram vistos no material da faculdade:
+
+Interface clara (sem excesso de botões)
+
+Elementos sempre no mesmo lugar
+
+Títulos grandes para facilitar leitura
+
+Navegação direta (Home → Lista → Detalhes)
+
+Mensagens simples e sem termos técnicos
+
+Ainda está longe do ideal, mas atende ao MVP.
+
+3. Estrutura do protótipo das telas
+3.1 – Tela Inicial (Home)
+
+Elementos esperados:
+
+Título da loja: Bonsai Store
+
+Subtítulo curto explicando a proposta
+
+Botão/link “Ver produtos”
+
+Layout simples, sem imagens ainda (pode ser incluído depois)
+
+Função: apresentar o sistema e levar o usuário para a lista de bonsais.
+
+3.2 – Tela de Lista de Bonsais
+
+Itens planejados:
+
+Lista simples (nome do bonsai + preço)
+
+Cada item é clicável para abrir detalhes
+
+Espaçamento grande entre linhas para melhorar leitura
+
+Opção futura de filtro (não implementada agora)
+
+Essa tela será provavelmente a mais usada pelos testes dos colegas.
+
+3.3 – Tela de Detalhes do Bonsai
+
+Campos exibidos:
+
+Nome do bonsai
+
+Pequena descrição
+
+Preço
+
+Botão “Voltar”
+
+Botão “Editar” (para o CRUD, mas vai ser simples)
+
+Obs.: a descrição ainda será curta porque não temos um banco de dados completo.
+
+3.4 – Tela de Cadastro de Bonsai
+
+Campos planejados:
+
+Nome
+
+Descrição
+
+Preço
+
+Botão “Salvar”
+
+Mensagem de confirmação simples
+
+Por enquanto, o formulário vai ser bem básico mesmo.
+
+4. Fluxo resumido de navegação
+
+Home → Ver produtos
+
+Lista de Bonsais → escolher um item
+
+Detalhes do Produto
+
+Se quiser: Editar / Voltar
+
+Cadastro pode ser acessado por um botão mais escondido no topo
+
+Ainda não está visualmente formatado, mas a lógica geral está pronta.
+
+5. Observações finais
+
+O protótipo foi feito de forma simples por limitação de tempo
+
+Algumas telas podem mudar quando eu começar a programar
+
+A ideia principal foi manter tudo fácil de implementar no Flask
+
+A interface final deve ficar parecida, mas não igual
+
+Documento pronto para a fase de implementação.

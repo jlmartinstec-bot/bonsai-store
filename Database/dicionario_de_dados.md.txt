@@ -1,0 +1,20 @@
+# Dicionário de Dados – Bonsai Store
+
+Este dicionário descreve os campos da tabela principal usada no sistema.  
+O banco está simples porque o projeto é um MVP e ainda vai evoluir.
+
+## Tabela: produtos
+
+| Campo      | Tipo      | Descrição rápida |
+|------------|-----------|------------------|
+| id         | INTEGER   | Identificador do produto. É gerado automaticamente. |
+| nome       | TEXT      | Nome do bonsai. |
+| descricao  | TEXT      | Pequena descrição do bonsai. |
+| preco      | REAL      | Preço do bonsai. Valor decimal. |
+
+## Observações
+- Todos os campos são básicos por limitação de tempo.
+- Pode haver mais tabelas no futuro, mas por enquanto só esta é suficiente.
+- O modelo foi pensado para funcionar com SQLite no Flask.
+
+Documento simples, mas suficiente para atender a etapa da modelagem de dados.

@@ -23,3 +23,56 @@ id | identificador do produto | int
 nome | nome do bonsai | varchar
 descricao | detalhes | text
 preco | valor do produto | decimal
+
+# Banco de Dados – Bonsai Store
+
+Este documento descreve a primeira versão do banco de dados usado no projeto Bonsai Store.  
+Por ser um MVP, a estrutura é simples e pode ser ajustada depois conforme necessidade.
+
+---
+
+## 1. Modelo Conceitual (descrição)
+O sistema precisa armazenar informações básicas sobre bonsais.  
+Por enquanto, só uma entidade principal foi definida:
+
+**Entidade: Produto**
+- id
+- nome
+- descricao
+- preco
+
+Existe a possibilidade de no futuro criar a entidade **Usuário**, mas não será usada agora para não complicar a entrega.
+
+---
+
+## 2. Modelo Lógico (versão inicial)
+Tabela: **produtos**
+
+| Campo      | Tipo      | Descrição                       |
+|------------|-----------|---------------------------------|
+| id         | INTEGER   | Identificador único (PK)        |
+| nome       | TEXT      | Nome do bonsai                  |
+| descricao  | TEXT      | Descrição curta                 |
+| preco      | REAL      | Preço do produto                |
+
+O modelo é simples, mas suficiente para o CRUD do MVP.
+
+---
+
+## 3. Dicionário de Dados
+
+### Tabela: produtos
+
+| Campo     | Tipo   | Obrigatório | Observações |
+|-----------|--------|-------------|-------------|
+| id        | int    | sim         | chave primária, autoincremento |
+| nome      | text   | sim         | nome do bonsai |
+| descricao | text   | não         | pode ser curto |
+| preco     | real   | sim         | valor numérico |
+
+---
+
+## Observações finais
+- O banco será SQLite pela simplicidade (arquivo local).
+- Pode ser expandido futuramente.
+- Este modelo atende as necessidades mínimas do PI.

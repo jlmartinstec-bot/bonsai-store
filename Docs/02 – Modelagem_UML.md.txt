@@ -1,6 +1,6 @@
 # Modelagem UML – Bonsai Store
 
-## Diagrama de Classes (versão inicial)
+## Diagrama de Classes (versão simplificada)
 Classes principais identificadas:
 
 ### Classe Produto
@@ -14,10 +14,57 @@ Classes principais identificadas:
 - nome: string
 - email: string
 
-## Diagrama de Caso de Uso
+## Diagrama de Caso de Uso (simplificado)
 - UC01: Visualizar lista de bonsais
 - UC02: Visualizar detalhes do produto
+- UC03: Cadastrar bonsai (CRUD básico)
+- UC04: Atualizar bonsai
+- UC05: Excluir bonsai
 
 ## Melhorias planejadas
 - Simplificação das classes
-- Ajuste para MVP possível
+- Remoção de requisitos complexos
+- Ajuste para MVP possível dentro do prazo
+
+---
+
+# Escopo Original (mantido para histórico)
+(O texto original permanece acima deste trecho — não alterar)
+
+---
+
+# Escopo Revisado (Versão Atualizada)
+
+## O que foi ajustado nesta revisão
+- Escopo mais claro e objetivo.
+- Foco maior na simplicidade (MVP).
+- Redução de funcionalidades para entregar dentro do prazo.
+- Melhora da descrição do problema.
+- Ajuste do público-alvo.
+- Inclusão da solução Bonsai Store como versão final.
+
+## Escopo Atual do Projeto – Bonsai Store
+A Bonsai Store é uma pequena aplicação web que permite visualizar, cadastrar e gerenciar bonsais disponíveis para venda. A solução inclui:
+
+- Catálogo simples de bonsais
+- Página inicial com apresentação da loja
+- CRUD básico (Criar, Ler, Atualizar, Excluir)
+- Design minimalista e funcional
+- Backend em Python + Flask
+- Banco de dados simples (SQLite)
+- Interface clara seguindo princípios de UX
+- Protótipo navegável da interface
+
+## Limitações da Versão Atual (MVP)
+- Não possui carrinho de compras completo
+- Não possui login de usuário
+- Não possui integração com meios de pagamento
+- Foco exclusivo em CRUD de produtos (bonsais)
+
+## Justificativa da Revisão
+Os ajustes foram feitos para:
+- Reduzir a complexidade do projeto
+- Garantir a entrega dentro do prazo
+- Facilitar testes e validação por colegas
+- Adotar uma solução realista e viável
+
