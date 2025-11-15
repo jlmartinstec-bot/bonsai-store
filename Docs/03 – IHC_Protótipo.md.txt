@@ -1,0 +1,18 @@
+# IHC e Protótipo – Bonsai Store
+
+## Princípios aplicados
+- Interface simples
+- Layout limpo
+- Título e descrição claros
+- Navegação direta
+
+## Protótipo inicial
+Tela inicial contém:
+- Título “Bonsai Store”
+- Texto de apresentação
+- Lista simples de produtos (versão futura)
+
+## Melhorias previstas
+- Botões mais visíveis
+- Ajustes de cores
+- Adicionar seção de produtos

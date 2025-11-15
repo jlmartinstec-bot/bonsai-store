@@ -1,0 +1,23 @@
+# Modelagem UML – Bonsai Store
+
+## Diagrama de Classes (versão inicial)
+Classes principais identificadas:
+
+### Classe Produto
+- id: inteiro
+- nome: string
+- descricao: string
+- preco: decimal
+
+### Classe Usuario (opcional no MVP)
+- id: inteiro
+- nome: string
+- email: string
+
+## Diagrama de Caso de Uso
+- UC01: Visualizar lista de bonsais
+- UC02: Visualizar detalhes do produto
+
+## Melhorias planejadas
+- Simplificação das classes
+- Ajuste para MVP possível

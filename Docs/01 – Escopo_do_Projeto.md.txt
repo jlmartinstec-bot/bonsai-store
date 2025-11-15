@@ -1,0 +1,26 @@
+# Revisão do Escopo – Bonsai Store
+
+Este documento revisa e melhora o planejamento inicial do projeto Bonsai Store.
+
+## Objetivo do sistema
+Criar uma aplicação web simples para venda de Bonsais, permitindo ao usuário:
+- Visualizar produtos
+- Ver detalhes básicos de cada Bonsai
+- Simulação de carrinho (versão inicial)
+- Cadastro simples futuro (opcional)
+
+## Problema identificado
+Havia pouca clareza sobre funcionalidades essenciais e sobre o backend.  
+Este documento revisa e define um escopo mínimo, funcional e realista.
+
+## Escopo definido (MINIMUM VIABLE PRODUCT)
+- Página inicial informativa
+- Lista de bonsais (estática por enquanto)
+- Backend em Python + Flask funcionando
+- Conexão do frontend com backend
+- Protótipo navegável da interface
+
+## Melhorias aplicadas
+- Escopo simplificado
+- Organização das pastas
+- Definição clara das entregas técnicas

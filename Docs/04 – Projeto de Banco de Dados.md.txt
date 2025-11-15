@@ -1,0 +1,25 @@
+# Projeto de Dados – Bonsai Store
+
+## Modelo Conceitual (simples)
+Entidade Produto:
+- id
+- nome
+- descricao
+- preco
+
+## Modelo Lógico
+Tabela: produtos
+- id INT PRIMARY KEY
+- nome VARCHAR(50)
+- descricao TEXT
+- preco DECIMAL(10,2)
+
+## Projeto Físico (inicial)
+Script SQL será criado na pasta /Database
+
+## Dicionário de Dados
+Campo | Descrição | Tipo
+id | identificador do produto | int
+nome | nome do bonsai | varchar
+descricao | detalhes | text
+preco | valor do produto | decimal
