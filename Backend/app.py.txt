@@ -1,10 +1,14 @@
 from flask import Flask, render_template
+import database
 
 app = Flask(
     __name__,
     template_folder="../Frontend/templates",
     static_folder="../Frontend/static"
 )
+
+# Inicializa o banco ao iniciar a aplicação
+database.inicializar_banco()
 
 @app.route("/")
 def home():

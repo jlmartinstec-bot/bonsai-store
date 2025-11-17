@@ -3,25 +3,22 @@ import os
 
 DB_NAME = "bonsai.db"
 
+# Função que cria a conexão com o banco
 def get_connection():
     conn = sqlite3.connect(DB_NAME)
     return conn
 
-def init_db():
-    if not os.path.exists(DB_NAME):
-        conn = get_connection()
-        cursor = conn.cursor()
+# Função para inicializar o banco usando o schema.sql
+def inicializar_banco():
+    conn = get_connection()
+    cursor = conn.cursor()
 
-        # criando tabela manualmente, sem carregar o arquivo .sql
-        cursor.execute("""
-            CREATE TABLE products (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                nome TEXT,
-                descricao TEXT,
-                preco REAL
-            )
-        """)
+    # Lê o arquivo schema.sql
+    with open("../Database/schema.sql", "r") as f:
+        sql_script = f.read()
 
-        conn.commit()
-        conn.close()
-        print("Banco criado.")
+    # Executa todo o script SQL
+    cursor.executescript(sql_script)
+
+    conn.commit()
+    conn.close()
