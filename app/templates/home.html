@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<h2>Nossos bonsais</h2>
+
+{% if produtos %}
+<div class="grade">
+    {% for p in produtos %}
+    <article class="cartao">
+        <div class="foto">
+            {% if p.imagem %}
+            <img src="{{ url_for('static', filename='uploads/' ~ p.imagem) }}" alt="{{ p.nome }}">
+            {% else %}
+            <span class="sem-foto">🌳</span>
+            {% endif %}
+        </div>
+        <div class="corpo">
+            <h3>{{ p.nome }}</h3>
+            <p class="especie">{{ p.especie or '' }}</p>
+            <p class="descricao">{{ p.descricao or '' }}</p>
+            <p class="preco">{{ p.preco | brl }}</p>
+            {% if p.estoque > 0 %}
+            <form method="post" action="{{ url_for('carrinho.adicionar', produto_id=p.id) }}">
+                <button type="submit" class="botao largo">Adicionar ao carrinho</button>
+            </form>
+            {% else %}
+            <span class="esgotado">Esgotado</span>
+            {% endif %}
+        </div>
+    </article>
+    {% endfor %}
+</div>
+{% else %}
+<p>Nenhum bonsai disponível no momento.</p>
+{% endif %}
+{% endblock %}

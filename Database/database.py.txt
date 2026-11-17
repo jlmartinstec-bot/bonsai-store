@@ -1,24 +1,24 @@
 import sqlite3
 import os
 
-DB_NAME = "bonsai.db"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Função que cria a conexão com o banco
+DB_NAME = os.path.join(BASE_DIR, "bonsai.db")
+SCHEMA_PATH = os.path.join(BASE_DIR, "Database", "schema.sql")
+
+
 def get_connection():
     conn = sqlite3.connect(DB_NAME)
+    conn.row_factory = sqlite3.Row
     return conn
 
-# Função para inicializar o banco usando o schema.sql
+
 def inicializar_banco():
     conn = get_connection()
-    cursor = conn.cursor()
 
-    # Lê o arquivo schema.sql
-    with open("../Database/schema.sql", "r") as f:
-        sql_script = f.read()
+    with open(SCHEMA_PATH, "r", encoding="utf-8") as arquivo:
+        sql_script = arquivo.read()
 
-    # Executa todo o script SQL
-    cursor.executescript(sql_script)
-
+    conn.executescript(sql_script)
     conn.commit()
     conn.close()

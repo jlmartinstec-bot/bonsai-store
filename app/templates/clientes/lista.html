@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block titulo %}Clientes - Bonsai Store{% endblock %}
+{% block conteudo %}
+<div class="topo-lista">
+    <h2>Clientes</h2>
+    <a class="botao" href="{{ url_for('clientes.novo') }}">+ Novo cliente</a>
+</div>
+
+{% if clientes %}
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in clientes %}
+        <tr>
+            <td>
+                <strong>{{ c.nome }}</strong><br>
+                <small>{{ c.endereco or '' }}</small>
+            </td>
+            <td>{{ c.email }}</td>
+            <td class="nowrap">{{ c.telefone or '-' }}</td>
+            <td>
+                <div class="acoes">
+                    <a class="botao pequeno" href="{{ url_for('clientes.editar', cliente_id=c.id) }}">Editar</a>
+                    <form method="post" action="{{ url_for('clientes.excluir', cliente_id=c.id) }}"
+                          onsubmit="return confirm('Excluir este cliente?');">
+                        <button type="submit" class="botao pequeno perigo">Excluir</button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Nenhum cliente cadastrado ainda.</p>
+{% endif %}
+{% endblock %}

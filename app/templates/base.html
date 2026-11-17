@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block titulo %}Bonsai Store{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1><a href="{{ url_for('home.home') }}">🌳 Bonsai Store</a></h1>
+        <nav>
+            <a href="{{ url_for('home.home') }}">Loja</a>
+            <a href="{{ url_for('carrinho.ver') }}">Carrinho{% if qtd_carrinho %} <span class="contador">{{ qtd_carrinho }}</span>{% endif %}</a>
+            <a href="{{ url_for('pedidos.lista') }}">Pedidos</a>
+            <a href="{{ url_for('clientes.lista') }}">Clientes</a>
+            <a href="{{ url_for('produtos.lista') }}">Produtos</a>
+        </nav>
+    </header>
+    <main>
+        {% with mensagens = get_flashed_messages(with_categories=true) %}
+            {% for categoria, mensagem in mensagens %}
+                <div class="alerta {{ categoria }}">{{ mensagem }}</div>
+            {% endfor %}
+        {% endwith %}
+
+        {% block conteudo %}{% endblock %}
+    </main>
+    <footer>Bonsai Store · Projeto Integrador de Engenharia de Software II</footer>
+</body>
+</html>

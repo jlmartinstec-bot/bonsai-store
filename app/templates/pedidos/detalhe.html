@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block titulo %}Pedido #{{ pedido.id }} - Bonsai Store{% endblock %}
+{% block conteudo %}
+<h2>Pedido #{{ pedido.id }}</h2>
+<p>
+    <strong>Cliente:</strong> {{ pedido.cliente_nome }} ({{ pedido.cliente_email }})<br>
+    <strong>Data:</strong> {{ pedido.data_pedido }}<br>
+    <strong>Status:</strong> <span class="status">{{ pedido.status }}</span>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Qtd.</th>
+            <th>Preço</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in itens %}
+        <tr>
+            <td>{{ item.nome }}</td>
+            <td>{{ item.quantidade }}</td>
+            <td class="nowrap">{{ item.preco_unitario | brl }}</td>
+            <td class="nowrap">{{ item.subtotal | brl }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3"><strong>Total</strong></td>
+            <td class="nowrap"><strong>{{ total | brl }}</strong></td>
+        </tr>
+    </tfoot>
+</table>
+
+<form method="post" action="{{ url_for('pedidos.status', pedido_id=pedido.id) }}" class="formulario linha">
+    <label for="status">Alterar status</label>
+    <select id="status" name="status">
+        {% for s in status_validos %}
+        <option value="{{ s }}" {% if s == pedido.status %}selected{% endif %}>{{ s }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="botao">Atualizar</button>
+</form>
+<p><a class="botao secundario" href="{{ url_for('pedidos.lista') }}">Voltar para os pedidos</a></p>
+{% endblock %}

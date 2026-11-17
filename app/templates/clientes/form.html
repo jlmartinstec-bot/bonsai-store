@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block titulo %}{{ titulo }} - Bonsai Store{% endblock %}
+{% block conteudo %}
+<h2>{{ titulo }}</h2>
+
+<form method="post" action="{{ acao }}" class="formulario">
+    <label for="nome">Nome *</label>
+    <input type="text" id="nome" name="nome" maxlength="100" value="{{ c.nome or '' }}" required>
+
+    <label for="email">E-mail *</label>
+    <input type="text" id="email" name="email" placeholder="nome@email.com" value="{{ c.email or '' }}" required>
+
+    <label for="telefone">Telefone</label>
+    <input type="text" id="telefone" name="telefone" value="{{ c.telefone or '' }}">
+
+    <label for="endereco">Endereço</label>
+    <textarea id="endereco" name="endereco" rows="3">{{ c.endereco or '' }}</textarea>
+
+    <div class="botoes">
+        <button type="submit" class="botao">Salvar</button>
+        <a class="botao secundario" href="{{ url_for('clientes.lista') }}">Cancelar</a>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block titulo %}Produtos - Bonsai Store{% endblock %}
+{% block conteudo %}
+<div class="topo-lista">
+    <h2>Gerenciar produtos</h2>
+    <a class="botao" href="{{ url_for('produtos.novo') }}">+ Novo produto</a>
+</div>
+
+{% if produtos %}
+<table>
+    <thead>
+        <tr>
+            <th>Foto</th>
+            <th>Nome</th>
+            <th>Espécie</th>
+            <th>Preço</th>
+            <th>Estoque</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in produtos %}
+        <tr>
+            <td>
+                {% if p.imagem %}
+                <img class="mini" src="{{ url_for('static', filename='uploads/' ~ p.imagem) }}" alt="{{ p.nome }}">
+                {% else %}
+                <span class="mini sem-foto">🌳</span>
+                {% endif %}
+            </td>
+            <td>
+                <strong>{{ p.nome }}</strong><br>
+                <small>{{ p.descricao or '' }}</small>
+            </td>
+            <td>{{ p.especie or '-' }}</td>
+            <td class="nowrap">{{ p.preco | brl }}</td>
+            <td>{{ p.estoque }}</td>
+            <td>
+                <div class="acoes">
+                    <a class="botao pequeno" href="{{ url_for('produtos.editar', produto_id=p.id) }}">Editar</a>
+                    <form method="post" action="{{ url_for('produtos.excluir', produto_id=p.id) }}"
+                          onsubmit="return confirm('Excluir este produto?');">
+                        <button type="submit" class="botao pequeno perigo">Excluir</button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Nenhum produto cadastrado ainda.</p>
+{% endif %}
+{% endblock %}

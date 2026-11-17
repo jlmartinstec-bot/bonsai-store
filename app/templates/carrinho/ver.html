@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block titulo %}Carrinho - Bonsai Store{% endblock %}
+{% block conteudo %}
+<h2>Seu carrinho</h2>
+
+{% if itens %}
+<table>
+    <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Qtd.</th>
+            <th>Preço</th>
+            <th>Subtotal</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in itens %}
+        <tr>
+            <td>
+                <div class="linha-produto">
+                    {% if item.produto.imagem %}
+                    <img class="mini" src="{{ url_for('static', filename='uploads/' ~ item.produto.imagem) }}" alt="{{ item.produto.nome }}">
+                    {% else %}
+                    <span class="mini sem-foto">🌳</span>
+                    {% endif %}
+                    <strong>{{ item.produto.nome }}</strong>
+                </div>
+            </td>
+            <td>{{ item.quantidade }}</td>
+            <td class="nowrap">{{ item.produto.preco | brl }}</td>
+            <td class="nowrap">{{ item.subtotal | brl }}</td>
+            <td>
+                <form method="post" action="{{ url_for('carrinho.remover', produto_id=item.produto.id) }}">
+                    <button type="submit" class="botao pequeno perigo">Remover</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3"><strong>Total</strong></td>
+            <td colspan="2" class="nowrap"><strong>{{ total | brl }}</strong></td>
+        </tr>
+    </tfoot>
+</table>
+
+<h3>Finalizar pedido</h3>
+{% if clientes %}
+<form method="post" action="{{ url_for('carrinho.finalizar') }}" class="formulario">
+    <label for="cliente_id">Cliente *</label>
+    <select id="cliente_id" name="cliente_id" required>
+        <option value="">Escolha o cliente</option>
+        {% for c in clientes %}
+        <option value="{{ c.id }}">{{ c.nome }} ({{ c.email }})</option>
+        {% endfor %}
+    </select>
+    <div class="botoes">
+        <button type="submit" class="botao">Finalizar pedido</button>
+        <a class="botao secundario" href="{{ url_for('home.home') }}">Continuar comprando</a>
+    </div>
+</form>
+{% else %}
+<p>Para finalizar, primeiro <a href="{{ url_for('clientes.novo') }}">cadastre um cliente</a>.</p>
+{% endif %}
+
+{% else %}
+<p>Seu carrinho está vazio.</p>
+<p><a class="botao" href="{{ url_for('home.home') }}">Ver os bonsais</a></p>
+{% endif %}
+{% endblock %}

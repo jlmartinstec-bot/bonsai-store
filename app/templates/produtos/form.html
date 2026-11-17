@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block titulo %}{{ titulo }} - Bonsai Store{% endblock %}
+{% block conteudo %}
+<h2>{{ titulo }}</h2>
+
+<form method="post" action="{{ acao }}" class="formulario" enctype="multipart/form-data">
+    <label for="nome">Nome *</label>
+    <input type="text" id="nome" name="nome" maxlength="100" value="{{ p.nome or '' }}" required>
+
+    <label for="especie">Espécie</label>
+    <input type="text" id="especie" name="especie" value="{{ p.especie or '' }}">
+
+    <label for="preco">Preço (R$) *</label>
+    <input type="text" id="preco" name="preco" placeholder="89,90"
+           value="{% if p.preco is number %}{{ '%.2f' | format(p.preco) | replace('.', ',') }}{% else %}{{ p.preco or '' }}{% endif %}" required>
+
+    <label for="estoque">Estoque</label>
+    <input type="text" id="estoque" name="estoque" value="{{ p.estoque if p.estoque is defined else 0 }}">
+
+    <label for="descricao">Descrição</label>
+    <textarea id="descricao" name="descricao" rows="4">{{ p.descricao or '' }}</textarea>
+
+    <label for="imagem">Foto do produto (PNG, JPG, GIF ou WEBP, até 3 MB)</label>
+    {% if imagem_atual %}
+    <div class="foto-atual">
+        <img class="mini grande" src="{{ url_for('static', filename='uploads/' ~ imagem_atual) }}" alt="Foto atual">
+        <small>Foto atual. Escolha outra abaixo só se quiser trocar.</small>
+    </div>
+    {% endif %}
+    <input type="file" id="imagem" name="imagem" accept="image/png,image/jpeg,image/gif,image/webp">
+
+    <div class="botoes">
+        <button type="submit" class="botao">Salvar</button>
+        <a class="botao secundario" href="{{ url_for('produtos.lista') }}">Cancelar</a>
+    </div>
+</form>
+{% endblock %}

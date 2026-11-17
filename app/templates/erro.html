@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block titulo %}Erro {{ codigo }} - Bonsai Store{% endblock %}
+{% block conteudo %}
+<h2>Erro {{ codigo }}</h2>
+<p>{{ mensagem }}</p>
+<p><a class="botao" href="{{ url_for('home.home') }}">Voltar para a loja</a></p>
+{% endblock %}
